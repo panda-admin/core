@@ -26,7 +26,8 @@ class AdminServiceProvider extends ServiceProvider
     {
         $this->publishes([
             __DIR__ . '/../dist' => public_path('vendor/panda-admin'),
-            __DIR__ . '/../config/panda-admin.php' => config_path('panda-admin.php'),
+            __DIR__ . '/../config/panda-admin.php' => config_path('panda-admin/panda-admin.php'),
+            __DIR__ . '/../config/contenttypes.yml' => config_path('panda-admin/contenttypes.yml'),
         ], 'panda-admin');
 
         $this->loadRoutesFrom(__DIR__ . '/routes.php');
