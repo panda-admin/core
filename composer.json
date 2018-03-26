@@ -1,0 +1,12 @@
+{
+    "name": "panda-admin/core",
+    "require": {
+        "laravel/framework": "^5.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "PandaAdmin\\Core\\": "src/"
+        }
+    },
+    "license": "MIT"
+}
