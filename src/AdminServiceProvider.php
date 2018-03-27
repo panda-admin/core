@@ -4,6 +4,8 @@ namespace PandaAdmin\Core;
 
 
 use Illuminate\Support\ServiceProvider;
+use PandaAdmin\Core\Contenttypes\Config;
+use Symfony\Component\Yaml\Yaml;
 
 class AdminServiceProvider extends ServiceProvider
 {
@@ -14,7 +16,9 @@ class AdminServiceProvider extends ServiceProvider
      */
     public function register()
     {
-
+        $this->app->bind(Config::class, function($app) {
+            return new Config(Yaml::parseFile(config_path('panda-admin/contenttypes.yml')));
+        });
     }
 
     /**

@@ -6,6 +6,7 @@ namespace PandaAdmin\Core\Controllers;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use function Sodium\crypto_box_publickey_from_secretkey;
 
 class ContentController extends Controller
 {
