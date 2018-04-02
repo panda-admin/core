@@ -6,7 +6,7 @@ namespace PandaAdmin\Core\Controllers;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use function Sodium\crypto_box_publickey_from_secretkey;
+use PandaAdmin\Core\Contenttypes\Form\FormBuilder;
 
 class ContentController extends Controller
 {
@@ -38,12 +38,28 @@ class ContentController extends Controller
         ]);
     }
 
-    public function store()
+    public function create(FormBuilder $builder)
     {
+        dump($builder->build([
+            [
+                'type' => 'text'
+            ]
+        ]));
+        $contenttype = [
+            'contenttype' => 'testtype',
+            'fields' => [
+                'name' => 'asdad',
+                'type' => 'text',
+                'component' => 'text-component',
+                'value' => 'asdas',
+                'label' => 'Asdad',
+            ],
+        ];
 
+        return new JsonResponse($contenttype);
     }
 
-    public function create()
+    public function store()
     {
 
     }

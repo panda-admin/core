@@ -1,15 +1,15 @@
 <?php
 
-namespace PandaAdmin\Core\Storage;
+namespace PandaAdmin\Core\Contenttypes\Fields;
 
 
 class FieldMap
 {
     protected $fields = [
-        'text' => Fields\TextField::class
+        'text' => TextField::class
     ];
 
-    protected $customFields;
+    protected $customFields = [];
 
     public function __construct()
     {

@@ -9,8 +9,6 @@ class AdminController
 {
     public function index(Config $config)
     {
-        dump($config);
-        die();
         return view('panda-admin::index');
     }
 }

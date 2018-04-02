@@ -11,6 +11,7 @@ Route::group($attributes, function() {
     Route::get('/content/types', 'ContentTypeController@index');
 
     Route::get('/content/{contenttype}', 'ContentController@index');
+    Route::get('/content/{contenttype}/create', 'ContentController@create');
     Route::post('/content/{contenttype}', 'ContentController@store');
     Route::put('/content/{contenttype}/{id}', 'ContentController@update');
     Route::delete('/content/{contenttype}/{id}', 'ContentController@delete');

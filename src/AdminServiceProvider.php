@@ -3,8 +3,11 @@
 namespace PandaAdmin\Core;
 
 
+use Illuminate\Foundation\Application;
 use Illuminate\Support\ServiceProvider;
 use PandaAdmin\Core\Contenttypes\Config;
+use PandaAdmin\Core\Contenttypes\Form\FormBuilder;
+use PandaAdmin\Core\Contenttypes\Fields\FieldMap;
 use Symfony\Component\Yaml\Yaml;
 
 class AdminServiceProvider extends ServiceProvider
@@ -16,8 +19,17 @@ class AdminServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind(Config::class, function($app) {
+        $this->app->singleton(Config::class, function($app) {
             return new Config(Yaml::parseFile(config_path('panda-admin/contenttypes.yml')));
+        });
+
+        // TODO: Make fieldmap consume custom fields
+        $this->app->singleton(FieldMap::class, function($app) {
+            return new FieldMap();
+        });
+
+        $this->app->bind(FormBuilder::class, function (Application $app) {
+            return new FormBuilder($app->make(FieldMap::class));
         });
     }
 
