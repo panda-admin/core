@@ -6,7 +6,7 @@ namespace PandaAdmin\Core\Controllers;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use PandaAdmin\Core\Contenttypes\Form\FormBuilder;
+use PandaAdmin\Core\Content\Form\FormBuilder;
 
 class ContentController extends Controller
 {

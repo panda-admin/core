@@ -1,9 +1,9 @@
 <?php
 
-namespace PandaAdmin\Core\Contenttypes\Fields;
+namespace PandaAdmin\Core\Content\Fields;
 
 
-class TextField implements FieldInterface
+class TextField extends AbstractField
 {
     protected $component = 'text-field';
 

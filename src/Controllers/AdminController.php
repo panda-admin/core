@@ -3,11 +3,9 @@
 namespace PandaAdmin\Core\Controllers;
 
 
-use PandaAdmin\Core\Contenttypes\Config;
-
 class AdminController
 {
-    public function index(Config $config)
+    public function index()
     {
         return view('panda-admin::index');
     }

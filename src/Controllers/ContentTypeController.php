@@ -6,20 +6,13 @@ namespace PandaAdmin\Core\Controllers;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use PandaAdmin\Core\Content\ContentTypeFactory;
 
 class ContentTypeController extends Controller
 {
     public function index()
     {
-        return new JsonResponse([
-            'model1' => [
-                'label' => 'Model 1'
-            ],
 
-            'model2' => [
-                'label' => 'Model 2'
-            ]
-        ]);
     }
 
     public function store()
@@ -32,9 +25,9 @@ class ContentTypeController extends Controller
 
     }
 
-    public function show()
+    public function show($type, ContentTypeFactory $factory)
     {
-
+        return new JsonResponse($factory->build($type)->getFormDefinition());
     }
 
     public function update()

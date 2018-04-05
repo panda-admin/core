@@ -1,9 +1,9 @@
 <?php
 
-namespace PandaAdmin\Core\Contenttypes\Form;
+namespace PandaAdmin\Core\Content\Form;
 
 
-use PandaAdmin\Core\Contenttypes\Fields\FieldMap;
+use PandaAdmin\Core\Content\Fields\FieldMap;
 
 class FormBuilder
 {
@@ -14,7 +14,7 @@ class FormBuilder
         $this->fieldMap = $fieldMap->getFieldMap();
     }
 
-    public function build(array $fields)
+    public function build($fields)
     {
         $form = new Form();
 

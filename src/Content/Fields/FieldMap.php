@@ -1,12 +1,14 @@
 <?php
 
-namespace PandaAdmin\Core\Contenttypes\Fields;
+namespace PandaAdmin\Core\Content\Fields;
 
 
 class FieldMap
 {
     protected $fields = [
-        'text' => TextField::class
+        'text' => TextField::class,
+        'html' => HtmlField::class,
+        'image' => ImageField::class,
     ];
 
     protected $customFields = [];

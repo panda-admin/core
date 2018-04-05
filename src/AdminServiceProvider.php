@@ -5,9 +5,9 @@ namespace PandaAdmin\Core;
 
 use Illuminate\Foundation\Application;
 use Illuminate\Support\ServiceProvider;
-use PandaAdmin\Core\Contenttypes\Config;
-use PandaAdmin\Core\Contenttypes\Form\FormBuilder;
-use PandaAdmin\Core\Contenttypes\Fields\FieldMap;
+use PandaAdmin\Core\Config\Config;
+use PandaAdmin\Core\Content\Form\FormBuilder;
+use PandaAdmin\Core\Content\Fields\FieldMap;
 use Symfony\Component\Yaml\Yaml;
 
 class AdminServiceProvider extends ServiceProvider
@@ -42,7 +42,7 @@ class AdminServiceProvider extends ServiceProvider
     {
         $this->publishes([
             __DIR__ . '/../dist' => public_path('vendor/panda-admin'),
-            __DIR__ . '/../config/panda-admin.php' => config_path('panda-admin/panda-admin.php'),
+            __DIR__ . '/../config/config.php' => config_path('panda-admin/config.php'),
             __DIR__ . '/../config/contenttypes.yml' => config_path('panda-admin/contenttypes.yml'),
         ], 'panda-admin');
 

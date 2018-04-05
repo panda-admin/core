@@ -34,7 +34,7 @@
             }
         },
         mounted() {
-            this.$http.get('/content/types').then((res) => this.store.contenttypes = res.data);
+            // this.$http.get('/content/types').then((res) => this.store.contenttypes = res.data);
         }
     }
 </script>
