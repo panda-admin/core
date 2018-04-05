@@ -6,9 +6,9 @@
   "license": "MIT",
   "dependencies": {
     "axios": "^0.18.0",
-    "buefy": "^0.6.4",
     "bulma": "^0.6.2",
     "cross-env": "^5.1.4",
+    "element-ui": "^2.3.2",
     "laravel-mix": "^2.1.11",
     "vue": "^2.5.16",
     "vue-router": "^3.0.1"
