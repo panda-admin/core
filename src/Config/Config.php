@@ -2,7 +2,7 @@
 
 namespace PandaAdmin\Core\Config;
 
-class Config
+class Config implements ConfigInterface
 {
     /**
      * Main configuration array

@@ -6,7 +6,7 @@ namespace PandaAdmin\Core\Content;
 use PandaAdmin\Core\Config\Config;
 use PandaAdmin\Core\Content\Form\FormBuilder;
 
-class ContentTypeFactory
+class ContentTypeFactory implements ContentTypeFactoryInterface
 {
     /**
      * @var \PandaAdmin\Core\Config\Config
