@@ -6,7 +6,7 @@ namespace PandaAdmin\Core\Form;
 use PandaAdmin\Core\Content\ContentRecordInterface;
 use PandaAdmin\Core\Content\ContentTypeInterface;
 
-class Form implements FormInterface
+class Form implements FormInterface, \JsonSerializable
 {
     /**
      * @var \PandaAdmin\Core\Content\ContentTypeInterface
@@ -24,21 +24,14 @@ class Form implements FormInterface
     protected $fields = [];
 
     /**
-     * @var \PandaAdmin\Core\Form\FormRendererInterface
-     */
-    protected $renderer;
-
-    /**
      * Form constructor.
-     * @param \PandaAdmin\Core\Content\ContentTypeInterface $contentType
-     * @param \PandaAdmin\Core\Content\ContentRecordInterface|null $contentRecord
-     * @param \PandaAdmin\Core\Form\FormRendererInterface|null $renderer
+     * @inheritdoc
      */
-    public function __construct(ContentTypeInterface $contentType, ContentRecordInterface $contentRecord = null, FormRendererInterface $renderer = null)
+    public function __construct(ContentTypeInterface $ct, array $fields, ContentRecordInterface $cr = null)
     {
-        $this->contentType = $contentType;
-        $this->contentRecord = $contentRecord;
-        $this->renderer = $renderer;
+        $this->contentType = $ct;
+        $this->contentRecord = $cr;
+        $this->fields = $fields;
     }
 
     /**
@@ -66,10 +59,13 @@ class Form implements FormInterface
     }
 
     /**
-     * @return mixed
+     * @return array
      */
-    public function render()
+    public function jsonSerialize(): array
     {
-        return $this->renderer->render();
+        return [
+            'content_type' => $this->getContentType()->getName(),
+            'fields' => $this->getFields(),
+        ];
     }
 }

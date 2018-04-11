@@ -8,9 +8,13 @@ use PandaAdmin\Core\Content\ContentTypeInterface;
 
 interface FormInterface
 {
-    public function __construct(ContentTypeInterface $contentType,
-                                ContentRecordInterface $contentRecord = null,
-                                FormRendererInterface $renderer = null);
+    /**
+     * FormInterface constructor.
+     * @param \PandaAdmin\Core\Content\ContentTypeInterface $contentType
+     * @param array $fields
+     * @param \PandaAdmin\Core\Content\ContentRecordInterface|null $contentRecord
+     */
+    public function __construct(ContentTypeInterface $contentType, array $fields, ContentRecordInterface $contentRecord = null);
 
     /**
      * @return \PandaAdmin\Core\Content\ContentTypeInterface
@@ -26,9 +30,4 @@ interface FormInterface
      * @return array
      */
     public function getFields(): array;
-
-    /**
-     * @return mixed
-     */
-    public function render();
 }

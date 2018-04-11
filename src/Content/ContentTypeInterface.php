@@ -5,5 +5,6 @@ namespace PandaAdmin\Core\Content;
 
 interface ContentTypeInterface
 {
-    public function getOptions();
+    public function getName(): string;
+    public function getOptions(): array;
 }

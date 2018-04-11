@@ -15,7 +15,7 @@ class FieldFactory implements FieldFactoryInterface
         $this->fieldMap = $fieldMap;
     }
 
-    public function make(string $field): FieldInterface
+    public function make(string $field): Types\FieldInterface
     {
         $class = $this->fieldMap->getFieldClass($field);
 

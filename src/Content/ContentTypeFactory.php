@@ -19,6 +19,6 @@ class ContentTypeFactory implements ContentTypeFactoryInterface
 
     public function make(string $name) : ContentTypeInterface
     {
-        return new ContentType($this->config->getContentTypeOptions($name));
+        return new ContentType($name, $this->config->getContentTypeOptions($name));
     }
 }
