@@ -12,7 +12,16 @@ class Config implements ConfigInterface
 
     public function __construct($config)
     {
+        if(!\is_array($config)) {
+            throw new \InvalidArgumentException('Configuration must be an array');
+        }
+
         $this->config = $config;
+    }
+
+    public function getConfig()
+    {
+        return $this->config;
     }
 
     public function getContentTypeConfig($type)
