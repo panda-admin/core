@@ -3,29 +3,22 @@
 namespace PandaAdmin\Core\Content;
 
 
-use PandaAdmin\Core\Config\Config;
-use PandaAdmin\Core\Content\Form\FormBuilder;
+use PandaAdmin\Core\Config\ConfigInterface;
 
 class ContentTypeFactory implements ContentTypeFactoryInterface
 {
     /**
-     * @var \PandaAdmin\Core\Config\Config
+     * @var ConfigInterface
      */
-    private $config;
+    protected $config;
 
-    /**
-     * @var \PandaAdmin\Core\Content\Form\FormBuilder
-     */
-    protected $builder;
-
-    public function __construct(Config $config, FormBuilder $builder)
+    public function __construct(ConfigInterface $config)
     {
         $this->config = $config;
-        $this->builder = $builder;
     }
 
-    public function build($type)
+    public function make(string $name) : ContentTypeInterface
     {
-        return new ContentType($this->config->getContentTypeConfig($type), $this->builder);
+        return new ContentType($this->config->getContentTypeOptions($name));
     }
 }

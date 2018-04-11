@@ -19,6 +19,6 @@ class ConfigTest extends TestCase
             ]
         ]);
 
-        $this->assertArraySubset(['fields' => []], $config->getContentTypeConfig('type1'));
+        $this->assertArraySubset(['fields' => []], $config->getContentTypeOptions('type1'));
     }
 }

@@ -7,5 +7,5 @@ interface ConfigInterface
 {
     public function __construct($config);
 
-    public function getContentTypeConfig($type);
+    public function getContentTypeOptions($type);
 }

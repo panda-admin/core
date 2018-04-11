@@ -24,7 +24,7 @@ class Config implements ConfigInterface
         return $this->config;
     }
 
-    public function getContentTypeConfig($type)
+    public function getContentTypeOptions($type)
     {
         return $this->config[$type];
     }
