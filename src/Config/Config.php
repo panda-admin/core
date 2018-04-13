@@ -10,6 +10,11 @@ class Config implements ConfigInterface
      */
     protected $config;
 
+    /**
+     * Config constructor.
+     * @param $config
+     * @throws \InvalidArgumentException If $config is not an array
+     */
     public function __construct($config)
     {
         if(!\is_array($config)) {
