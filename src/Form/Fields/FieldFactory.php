@@ -15,10 +15,10 @@ class FieldFactory implements FieldFactoryInterface
         $this->fieldMap = $fieldMap;
     }
 
-    public function make(string $field): Types\FieldInterface
+    public function make(string $field, array $options = []): Types\FieldInterface
     {
         $class = $this->fieldMap->getFieldClass($field);
 
-        return new $class();
+        return new $class($options);
     }
 }

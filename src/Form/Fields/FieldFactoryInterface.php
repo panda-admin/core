@@ -7,5 +7,5 @@ interface FieldFactoryInterface
 {
     public function __construct(FieldMapInterface $fieldMap);
 
-    public function make(string $field) : Types\FieldInterface;
+    public function make(string $field, array $options = []) : Types\FieldInterface;
 }

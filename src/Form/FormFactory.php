@@ -44,7 +44,7 @@ class FormFactory implements FormFactoryInterface
         foreach ($ctOptions['fields'] as $name => $field) {
 
             /** @var \PandaAdmin\Core\Form\Fields\Types\AbstractField $newField */
-            $newField = $this->fieldFactory->make($field['type']);
+            $newField = $this->fieldFactory->make($field['type'], $field);
 
             if($record !== null) {
                 $newField->setValue($record->getFieldValue($name));

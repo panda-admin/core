@@ -11,6 +11,13 @@ abstract class AbstractField implements FieldInterface, JsonSerializable
 
     protected $value;
 
+    protected $options;
+
+    public function __construct(array $options = [])
+    {
+        $this->options = $options;
+    }
+
     /**
      * @return mixed
      */
@@ -32,6 +39,7 @@ abstract class AbstractField implements FieldInterface, JsonSerializable
         return [
             'component' => $this->component,
             'value' => $this->value,
+            'options' => $this->options,
         ];
     }
 }
